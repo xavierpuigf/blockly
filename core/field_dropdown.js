@@ -148,10 +148,10 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
     // Activate the menu item.
     control.performActionInternal(e);
   }
-  menu.getHandler().listen(menu.getElement(), goog.events.EventType.TOUCHSTART,
-                           callbackTouchStart);
-  menu.getHandler().listen(menu.getElement(), goog.events.EventType.TOUCHEND,
-                           callbackTouchEnd);
+  //menu.getHandler().listen(menu.getElement(), goog.events.EventType.TOUCHSTART,
+  //                         callbackTouchStart);
+  //menu.getHandler().listen(menu.getElement(), goog.events.EventType.TOUCHEND,
+  //                         callbackTouchEnd);
 
   // Record windowSize and scrollOffset before adding menu.
   var windowSize = goog.dom.getViewportSize();
@@ -161,7 +161,7 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
   var div = Blockly.WidgetDiv.DIV;
   menu.render(div);
   var menuDom = menu.getElement();
-  Blockly.addClass_(menuDom, 'blocklyDropdownMenu');
+  //Blockly.addClass_(menuDom, 'blocklyDropdownMenu');
   // Record menuSize after adding menu.
   var menuSize = goog.style.getSize(menuDom);
   // Recalculate height for the total content, not only box height.

@@ -661,6 +661,9 @@ Blockly.Block.prototype.getVars = function() {
   var vars = [];
   for (var i = 0, input; input = this.inputList[i]; i++) {
     for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldVariableSpecial) {
+        vars.push(field.getValue());
+      }
       if (field instanceof Blockly.FieldVariable) {
         vars.push(field.getValue());
       }
@@ -678,6 +681,10 @@ Blockly.Block.prototype.getVars = function() {
 Blockly.Block.prototype.renameVar = function(oldName, newName) {
   for (var i = 0, input; input = this.inputList[i]; i++) {
     for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldVariableSpecial &&
+          Blockly.Names.equals(oldName, field.getValue())) {
+        field.setValue(newName);
+      }
       if (field instanceof Blockly.FieldVariable &&
           Blockly.Names.equals(oldName, field.getValue())) {
         field.setValue(newName);
